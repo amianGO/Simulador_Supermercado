@@ -71,7 +71,7 @@ public class SupermercadoController {   //Esta es la clase controladora que mane
                 Cliente cliente = new Cliente(nombre + " " + (j + 1));
                 colaClientes.offer(cliente);    //Añade el cliente a la cola de clientes
             }        
-
+            
         //Crear Cajeras
         String[] nombresCajeras = {"Elena", "Sofía", "Andrea", "Lucía", "Valeria"};
 
@@ -129,10 +129,12 @@ public class SupermercadoController {   //Esta es la clase controladora que mane
         }
 
         //Esperar a que las cajeras terminen con sus clientes actuales
-        try {
-            Thread.sleep(2000);
-        } catch (InterruptedException e) {
-            
+        for (Thread hilo : hilosCajeras) {
+            try {
+                hilo.join();    //Esperamos a que el hilo termine
+            } catch (InterruptedException e) {
+                
+            }
         }
         //Si la cola de clientes es vacia se finaliza la simulacion
         Platform.runLater(this::finalizarSimulacion);
