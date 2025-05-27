@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+
+<!-- Este es el archivo FXML para la interfaz de la simulacion de un supermercado-->
+
+<!-- BorderPane-->
+<BorderPane  xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.dgapps.controllers.SupermercadoController">
+    <top>
+      <!-- VBox crea un contenedor vertical para los elementos de la parte superior-->
+        <VBox spacing="10.0" style="-fx-background-color:rgb(84, 118, 151); -fx-padding: 15;">
+            <Label text=" SIMULADOR DE SUPERMERCADO" textFill="WHITE">
+                <font>
+                    <Font name="System Bold" size="24.0" />
+                </font>
+            </Label>
+            <Label text="Sistema de Simulacion de Proceso de Cobro">
+                <font>
+                    <Font size="14.0" />
+                </font>
+            </Label>
+        </VBox>
+    </top>
+    
+    <center>
+      <!-- HBox crea un contenedor horizontal para los elementos del centro-->
+      <HBox spacing="10.0">
+         <padding>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </padding>
+         
+         <!-- Panel de Control -->
+         <VBox spacing="15.0" style="-fx-background-color: #ecf0f1; -fx-padding: 15; -fx-background-radius: 10;">
+            <Label text="🎛️ PANEL DE CONTROL" style="-fx-font-weight: bold; -fx-font-size: 16px;" />
+            
+            <VBox spacing="10.0">
+               <Label text="Número de Cajeras:" style="-fx-font-weight: bold;" />
+               <!-- Spinner crea un componente para seleccionar un numero-->
+               <Spinner fx:id="spinnerCajeras" prefWidth="120.0" />
+            </VBox>
+            
+            <VBox spacing="10.0">
+               <Label text="Número de Clientes:" style="-fx-font-weight: bold;" />
+               <Spinner fx:id="spinnerClientes" prefWidth="120.0" />
+            </VBox>
+            
+            <VBox spacing="10.0">
+               <Button fx:id="btnIniciar" onAction="#iniciarSimulacion" 
+                       text="▶️ INICIAR SIMULACIÓN" 
+                       prefWidth="180.0" prefHeight="40.0"
+                       style="-fx-background-color: #27ae60; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 5;" />
+               
+               <Button fx:id="btnDetener" onAction="#detenerSimulacion" 
+                       text="⏹️ DETENER SIMULACIÓN" 
+                       prefWidth="180.0" prefHeight="40.0"
+                       style="-fx-background-color: #e74c3c; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 5;" />
+            </VBox>
+            
+            <!-- Panel de Estadísticas -->
+            <VBox fx:id="panelEstadisticas" spacing="10.0" style="-fx-border-color: #bdc3c7; -fx-border-width: 1; -fx-padding: 10; -fx-background-radius: 5;">
+               <Label text="📊 ESTADÍSTICAS" style="-fx-font-weight: bold; -fx-font-size: 14px;" />
+               
+               <HBox spacing="5.0">
+                  <Label text="Tiempo Total:" style="-fx-font-weight: bold;" />
+                  <Label fx:id="lblTiempoTotal" text="0 segundos" />
+               </HBox>
+               
+               <HBox spacing="5.0">
+                  <Label text="Clientes Atendidos:" style="-fx-font-weight: bold;" />
+                  <Label fx:id="lblClientesTotal" text="0" />
+               </HBox>
+               
+               <HBox spacing="5.0">
+                  <Label text="Promedio por Cliente:" style="-fx-font-weight: bold;" />
+                  <Label fx:id="lblPromedioAtencion" text="0 segundos" />
+               </HBox>
+            </VBox>
+         </VBox>
+         
+         <!-- Log de Actividad -->
+         <VBox spacing="10.0" HBox.hgrow="ALWAYS">
+            <Label text="📝 LOG DE ACTIVIDAD" style="-fx-font-weight: bold; -fx-font-size: 16px;" />
+            
+            <TextArea fx:id="areaLog" prefHeight="500.0" prefWidth="450.0" 
+                      editable="false" wrapText="true"
+                      style="-fx-control-inner-background: #2c3e50; -fx-text-fill: #ecf0f1; -fx-font-family: 'Courier New'; -fx-font-size: 12px;" />
+         </VBox>
+      </HBox>
+   </center>
+   
+   <bottom>
+      <HBox style="-fx-background-color: #34495e; -fx-padding: 10;">
+         <Label text="Simulador de Supermercado con Concurrencia" 
+                textFill="#ecf0f1" style="-fx-font-size: 12px;" />
+         <Region HBox.hgrow="ALWAYS" />
+         <Label text="Versión 1.0" textFill="#bdc3c7" style="-fx-font-size: 12px;" />
+      </HBox>
+   </bottom>
+</BorderPane>

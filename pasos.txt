@@ -1,0 +1,41 @@
+Esta aplicacion es un ejemplo de como funciona la Concurrencia con Java, es decir como trabaja el lenguaje de programacion con multiples tareas o multiples hilos ejecutandose al mismo tiempo, en este archivo vamos a mostrar paso a paso como crear la aplicacion, Utilizando JavaFx y Java
+
+Paso 1. Crear el Proyecto de JavaFX con Maven desde nuestro VsCode
+Paso 2. Identificar la Estructura del Proyecto es decir los paquetes que lo conforman, en este caso seria asi: 
+
+    > Src/main 
+        > java/com/dgapps
+            > controllers
+            > entities
+            App.java
+        > resources/com/dgapps
+    >target/
+    pom.xml
+
+paso 3. Una vez identificados los paquetes a utilizar o carpetas, vamos a definir como y con que trabajara la aplicacion con que dependencias y de que manera las  vamos a instalar, Por defecto la aplicacion creada para JavaFx trae la version actualizada segun tu instalacion de java, de javaFx asi que no sera necesario instalarlas en caso tal de que no las tengas recuerda instalar la dependencias correspondientes:
+
+<dependency>
+    <groupId>org.openjfx</groupId>
+    <artifactId>javafx-fxml</artifactId>
+    <version>13<version>
+</dependency> 
+<dependency>
+    <groupId>org.openjfx</groupId>
+    <artifactId>javafx-controls</artifactId>
+    <version>13<version>
+</dependency>
+
+Paso 4.  Una vez verificado vamos a comenzar con lo escencial probar el correcto funcionamiento de la aplicacion, iremos a nuestro archivo principal
+App.java y vamos a modificarlo desde 0, tambien crearemos un nuevo archivo de tipo fxml:
+    >resources/com/dgapps
+        supermercado.fxml
+para asi poderlo llamar en nuestra App.java y renderizar la aplicacion
+
+paso 5. Una vez verificado vamos a comenzar a crear los archivos que necesitaremos para que nuestra aplicacion funcione, debido a que nuestra aplicacion consta de Cajeros, Clientes y Productos, vamos a establecer estas como Entidades:
+
+    > entities
+        Cajera.java
+        Cliente.java
+        Producto.java
+
+    Primero Creamos la entidad Producto, luego cliente  y por Ultimo el Cajero recordar que en cada entidad esta comentado y explicado detalladamente como funciona cada parte del codigo
